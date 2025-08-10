@@ -32,7 +32,7 @@ public class ProductPartSyncBatchTest {
         Database.executeBatch(batch, 20);
         Test.stopTest();
 
-        List<SQX_Part__c> skippedParts = [SELECT Product__c FROM SQX_Part__c WHERE Product__c != null];
+        List<SQX_Part__c> skippedParts = [SELECT Product__c FROM SQX_Part__c];
         for (SQX_Part__c p : skippedParts) {
             Assert.isNotNull(p.Product__c);
         }
